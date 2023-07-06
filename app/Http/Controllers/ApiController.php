@@ -24,7 +24,7 @@ class ApiController extends Controller
                 if (Log::whereBetween('timestamp', [now()->setTimeFromTimeString($value['start']), now()->setTimeFromTimeString($value['end'])])->exists()) {
                     // return response
                     return response()->json([
-                        'status'    => false,
+                        'status'    => "false",
                         'delay'     => '0',
                     ]);
                 }else{
@@ -58,7 +58,7 @@ class ApiController extends Controller
 
                     // return response
                     return response()->json([
-                        'status'    => true,
+                        'status'    => "true",
                         'delay'     => $value['delay'],
                     ]);
                 }
@@ -67,7 +67,7 @@ class ApiController extends Controller
 
         // return response
         return response()->json([
-            'status'    => false,
+            'status'    => "false",
             'delay'     => '0',
         ]);
     }
