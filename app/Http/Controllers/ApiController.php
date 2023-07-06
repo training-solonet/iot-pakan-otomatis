@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jadwal;
 use App\Models\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -13,27 +14,8 @@ class ApiController extends Controller
      */
     public function index()
     {
-        return 'api';
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
         // jadwal waktu pakan otomatis
-        $schedule = [
-            [
-                'start' => '08:00:00',
-                'end'   => '08:05:00',
-                'delay' => '1000'
-            ],
-            [
-                'start' => '16:00:00',
-                'end'   => '16:05:00',
-                'delay' => '1000'
-            ],
-        ];
+        $schedule = Jadwal::all();
 
         // if current time is in schedule
         foreach ($schedule as $value) {
@@ -88,7 +70,14 @@ class ApiController extends Controller
             'status'    => false,
             'delay'     => '0',
         ]);
+    }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        // 
     }
 
     /**

@@ -15,7 +15,7 @@ use App\Http\Controllers\ApiController;
 |
 */
 
-Route::resource('api', ApiController::class);
+Route::resource('iot', ApiController::class);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
